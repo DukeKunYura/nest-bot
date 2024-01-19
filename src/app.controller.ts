@@ -20,6 +20,11 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  @Get('token')
+  getToken(): string {
+    return this.appService.getHello();
+  }
+
   @Get('user/id=:id/type=:type')
   getUser(
     @Param('id', ParseIntPipe) id: number,

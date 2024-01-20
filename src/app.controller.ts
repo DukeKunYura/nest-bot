@@ -34,10 +34,17 @@ export class AppController {
     return id + type;
   }
 
+  @Get('users')
+  async getAllUser() {
+    const res = await this.appService.getAllUsers();
+    return res;
+  }
+
   @UsePipes(new ValidationPipe())
   @Post('user/add')
-  createUser(@Body() dto: createUserDto) {
+  async createUser(@Body() dto: createUserDto) {
     console.log(dto.name + ' ' + dto.surname);
-    return dto.name + ' ' + dto.surname;
+    const res = await this.appService.save(dto);
+    return res;
   }
 }

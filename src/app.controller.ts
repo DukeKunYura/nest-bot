@@ -15,16 +15,6 @@ import { createUserDto } from './dto/createUser.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('hello')
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
-  @Get('token')
-  getToken(): string {
-    return this.appService.getHello();
-  }
-
   @Get('user/id=:id/type=:type')
   getUser(
     @Param('id', ParseIntPipe) id: number,

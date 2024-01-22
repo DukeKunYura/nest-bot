@@ -5,13 +5,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  constructor(
-    private readonly telegramService: TelegramService,
-    private readonly databaseService: DatabaseService,
-  ) {}
-  getHello(): string {
-    return this.telegramService.getToken();
-  }
+  constructor(private readonly databaseService: DatabaseService) {}
 
   async getAllUsers() {
     return this.databaseService.user.findMany();
